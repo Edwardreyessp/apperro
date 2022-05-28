@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:apperro/iniciar_sesion.dart';
-import 'package:apperro/registrarse.dart';
+import 'package:apperro/pages/iniciar_sesion.dart';
+import 'package:apperro/pages/registrarse.dart';
 
 void main() {
   runApp(MyApp());
@@ -54,11 +54,10 @@ class MyHomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Button(
-                  color: primario,
-                  texto: "Iniciar Sesión",
-                  colorLetra: Colors.white,
-                  funcion: () => {sesion(context)}
-                ),
+                    color: primario,
+                    texto: "Iniciar Sesión",
+                    colorLetra: Colors.white,
+                    funcion: () => {sesion(context)}),
                 Button(
                   color: Colors.white,
                   texto: "Registrarse",
@@ -86,8 +85,8 @@ class MyHomePage extends StatelessWidget {
   }
 
   resgitrarse(BuildContext context) {
-    Navigator.push(context,
-        MaterialPageRoute(builder: (context) => const Registrarse()));
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => const Registrarse()));
   }
 }
 
