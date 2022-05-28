@@ -32,6 +32,7 @@ dependencies:
   google_fonts: ^1.1.2
   flutter_svg: ^0.19.3
   flutter_svg_provider: ^0.1.8
+  generic_bloc_provider: ^1.1.0
 
 dev_dependencies:
   flutter_test:

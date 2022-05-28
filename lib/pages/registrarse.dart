@@ -1,5 +1,9 @@
+import 'package:apperro/widgets/input_text.dart';
+import 'package:apperro/widgets/rounded_button.dart';
+import 'package:apperro/widgets/texto.dart';
+import 'package:apperro/widgets/social_button.dart';
+
 import 'package:flutter/material.dart';
-import 'package:apperro/main.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:apperro/pages/iniciar_sesion.dart';
 
@@ -15,10 +19,16 @@ class Registrarse extends StatefulWidget {
 class _RegistrarseState extends State<Registrarse> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Container(
-          width: double.infinity,
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('assets/images/fondo_registrarse.jpg'),
+          fit: BoxFit.fill,
+        ),
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -30,9 +40,7 @@ class _RegistrarseState extends State<Registrarse> {
               SizedBox(height: 22),
               InputText(hint: "Contraseña"),
               SizedBox(height: 22),
-              Button(
-                color: Palette().primario,
-                colorLetra: Colors.white,
+              RoundedButton(
                 texto: "Iniciar Sesion",
                 funcion: () => {},
               ),
@@ -40,17 +48,13 @@ class _RegistrarseState extends State<Registrarse> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ButtonSociales(
-                    color: Palette().primario2,
+                  SocialButton(
                     icono: FontAwesomeIcons.google,
                     texto: "Registrarse",
-                    funcion: () {},
                   ),
-                  ButtonSociales(
-                    color: Palette().primario2,
+                  SocialButton(
                     icono: FontAwesomeIcons.facebook,
                     texto: "Registrarse",
-                    funcion: () {},
                   )
                 ],
               ),
@@ -59,25 +63,14 @@ class _RegistrarseState extends State<Registrarse> {
                 children: [
                   Texto(
                     color: Palette().grayLetra,
-                    size: 15,
                     texto: "¿Ya tienes una cuenta?",
                   ),
                   SizedBox(width: 6),
-                  Texto(
-                    color: Colors.black,
-                    size: 15,
-                    texto: "Inicia Sesión",
-                  ),
+                  Texto(texto: "Inicia Sesión"),
                 ],
               ),
               SizedBox(height: 45),
             ],
-          ),
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/images/fondo_registrarse.jpg'),
-              fit: BoxFit.fill,
-            ),
           ),
         ),
       ),

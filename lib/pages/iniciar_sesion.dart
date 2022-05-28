@@ -1,8 +1,12 @@
+import 'package:apperro/widgets/input_text.dart';
+import 'package:apperro/widgets/rounded_button.dart';
+import 'package:apperro/widgets/texto.dart';
+import 'package:apperro/widgets/social_button.dart';
+
 import 'package:apperro/palette.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:apperro/pages/navhome.dart';
-import 'package:apperro/main.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class IniciarSesion extends StatelessWidget {
@@ -10,192 +14,67 @@ class IniciarSesion extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: SafeArea(
-      child: Container(
-        width: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            InputText(
-              hint: "Correo",
-            ),
-            SizedBox(
-              height: 22,
-            ),
-            InputText(
-              hint: "Contraseña",
-            ),
-            SizedBox(
-              height: 22,
-            ),
-            Button(
-                color: Palette().primario,
-                colorLetra: Colors.white,
-                texto: "Iniciar Sesion",
-                funcion: () => {goHome(context)}),
-            SizedBox(
-              height: 22,
-            ),
-            Text(
-              "¿Olvidaste tu contraseña?",
-              style: GoogleFonts.montserrat(fontSize: 15),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ButtonSociales(
-                  color: Palette().primario2,
-                  icono: FontAwesomeIcons.google,
-                  texto: "Iniciar Sesión",
-                  funcion: () {},
-                ),
-                ButtonSociales(
-                  color: Palette().primario2,
-                  icono: FontAwesomeIcons.facebook,
-                  texto: "Iniciar Sesión",
-                  funcion: () {},
-                )
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Texto(
-                  color: Palette().grayLetra,
-                  size: 15,
-                  texto: "¿No tienes una cuenta?",
-                ),
-                SizedBox(
-                  width: 6,
-                ),
-                Texto(
-                  color: Colors.black,
-                  size: 15,
-                  texto: "Regístrate",
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 45,
-            ),
-          ],
-        ),
-        decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage(
-                'assets/images/fondo_inicio_sesion.jpg',
-              ),
-              fit: BoxFit.fill),
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(
+            'assets/images/fondo_inicio_sesion.jpg',
+          ),
+          fit: BoxFit.fill,
         ),
       ),
-    ));
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        backgroundColor: Colors.transparent,
+        body: SafeArea(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              InputText(hint: "Correo"),
+              SizedBox(height: 22),
+              InputText(hint: "Contraseña"),
+              SizedBox(height: 22),
+              RoundedButton(
+                texto: "Iniciar Sesion",
+                funcion: () => {goHome(context)},
+              ),
+              SizedBox(height: 22),
+              Texto(texto: "¿Olvidaste tu contraseña?"),
+              SizedBox(height: 30),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SocialButton(
+                    icono: FontAwesomeIcons.google,
+                    texto: "Iniciar Sesión",
+                  ),
+                  SocialButton(
+                    icono: FontAwesomeIcons.facebook,
+                    texto: "Iniciar Sesión",
+                  )
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Texto(
+                    color: Palette().grayLetra,
+                    texto: "¿No tienes una cuenta?",
+                  ),
+                  SizedBox(width: 6),
+                  Texto(texto: "Regístrate"),
+                ],
+              ),
+              SizedBox(height: 45),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   goHome(BuildContext context) {
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => const NavHome()));
-  }
-}
-
-class Texto extends StatelessWidget {
-  const Texto({
-    Key key,
-    @required this.color,
-    @required this.texto,
-    @required this.size,
-  }) : super(key: key);
-
-  final Color color;
-  final String texto;
-  final double size;
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      texto,
-      style: GoogleFonts.montserrat(fontSize: size, color: color),
-    );
-  }
-}
-
-class ButtonSociales extends StatelessWidget {
-  const ButtonSociales({
-    Key key,
-    @required this.color,
-    @required this.icono,
-    @required this.texto,
-    @required this.funcion,
-  }) : super(key: key);
-
-  final Color color;
-  final IconData icono;
-  final String texto;
-  final Function funcion;
-
-  @override
-  Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: funcion,
-      child: Container(
-        width: 127,
-        height: 48,
-        padding: EdgeInsets.all(5),
-        decoration: BoxDecoration(
-          border: Border.all(color: color),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            FaIcon(
-              icono,
-              color: color,
-            ),
-            SizedBox(width: 5),
-            Text(
-              texto,
-              style: GoogleFonts.montserrat(color: Colors.black, fontSize: 13),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class InputText extends StatelessWidget {
-  const InputText({
-    Key key,
-    @required this.hint,
-  }) : super(key: key);
-
-  final String hint;
-
-  @override
-  Widget build(BuildContext context) {
-    final Color gray = Color.fromRGBO(136, 136, 136, 1);
-    final Color input = Color.fromRGBO(236, 240, 242, 1);
-    return Container(
-      width: 313,
-      height: 42,
-      child: TextField(
-        style: GoogleFonts.montserrat(color: gray),
-        decoration: InputDecoration(
-          contentPadding: EdgeInsets.fromLTRB(30, 0, 0, 5),
-          border: UnderlineInputBorder(
-            borderRadius: BorderRadius.circular(50),
-            borderSide: BorderSide.none,
-          ),
-          hintText: hint,
-          hintStyle: GoogleFonts.montserrat(color: gray),
-          fillColor: input,
-          filled: true,
-        ),
-      ),
-    );
   }
 }
