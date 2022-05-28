@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:apperro/pages/iniciar_sesion.dart';
 import 'package:apperro/pages/registrarse.dart';
+import 'package:apperro/palette.dart';
 
 void main() {
   runApp(MyApp());
@@ -26,7 +27,7 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color primario = Color.fromRGBO(33, 150, 83, 1);
+    // Color primario = Color.fromRGBO(33, 150, 83, 1);
 
     return Scaffold(
       body: SafeArea(
@@ -46,7 +47,7 @@ class MyHomePage extends StatelessWidget {
               children: [
                 Container(
                   padding: EdgeInsets.only(left: 26, top: 19),
-                  child: Logo(color: primario),
+                  child: Logo(color: Palette().primario),
                 ),
               ],
             ),
@@ -54,22 +55,27 @@ class MyHomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Button(
-                    color: primario,
+                    color: Palette().primario,
                     texto: "Iniciar Sesión",
                     colorLetra: Colors.white,
                     funcion: () => {sesion(context)}),
                 Button(
                   color: Colors.white,
                   texto: "Registrarse",
-                  colorLetra: primario,
+                  colorLetra: Palette().primario,
                   funcion: () => {resgitrarse(context)},
                 ),
                 Container(
                   margin: EdgeInsets.only(bottom: 24, top: 50),
                   child: Center(
-                      child: Text("© Todos los derechos reservados",
-                          style: GoogleFonts.montserrat(
-                              fontSize: 15, color: primario))),
+                    child: Text(
+                      "© Todos los derechos reservados",
+                      style: GoogleFonts.montserrat(
+                        fontSize: 15,
+                        color: Palette().primario,
+                      ),
+                    ),
+                  ),
                 )
               ],
             )

@@ -1,3 +1,4 @@
+import 'package:apperro/palette.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -7,9 +8,6 @@ class NavHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color primario = Color.fromRGBO(33, 150, 83, 1);
-    Color primario2 = Color.fromRGBO(111, 207, 151, 1);
-
     return DefaultTabController(
       length: 5,
       child: Scaffold(
@@ -19,14 +17,17 @@ class NavHome extends StatelessWidget {
           title: Text(
             "APPerro",
             style: GoogleFonts.nunito(
-                fontSize: 40, fontWeight: FontWeight.w700, color: primario),
+              fontSize: 40,
+              fontWeight: FontWeight.w700,
+              color: Palette().primario,
+            ),
           ),
           backgroundColor: Colors.white,
           toolbarHeight: 120,
           bottom: TabBar(
-            indicatorColor: primario,
-            labelColor: primario,
-            unselectedLabelColor: primario2,
+            indicatorColor: Palette().primario,
+            labelColor: Palette().primario,
+            unselectedLabelColor: Palette().primario2,
             tabs: [
               Tab(
                 icon: Icon(Icons.home_rounded, size: 40),

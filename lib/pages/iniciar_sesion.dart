@@ -1,3 +1,4 @@
+import 'package:apperro/palette.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:apperro/pages/navhome.dart';
@@ -9,9 +10,6 @@ class IniciarSesion extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color gray = Color.fromRGBO(136, 136, 136, 1);
-    Color primario = Color.fromRGBO(33, 150, 83, 1);
-    Color primario2 = Color.fromRGBO(111, 207, 151, 1);
     return Scaffold(
         body: SafeArea(
       child: Container(
@@ -32,7 +30,7 @@ class IniciarSesion extends StatelessWidget {
               height: 22,
             ),
             Button(
-                color: primario,
+                color: Palette().primario,
                 colorLetra: Colors.white,
                 texto: "Iniciar Sesion",
                 funcion: () => {goHome(context)}),
@@ -50,13 +48,13 @@ class IniciarSesion extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ButtonSociales(
-                  primario2: primario2,
+                  color: Palette().primario2,
                   icono: FontAwesomeIcons.google,
                   texto: "Iniciar Sesión",
                   funcion: () {},
                 ),
                 ButtonSociales(
-                  primario2: primario2,
+                  color: Palette().primario2,
                   icono: FontAwesomeIcons.facebook,
                   texto: "Iniciar Sesión",
                   funcion: () {},
@@ -67,7 +65,7 @@ class IniciarSesion extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Texto(
-                  color: gray,
+                  color: Palette().grayLetra,
                   size: 15,
                   texto: "¿No tienes una cuenta?",
                 ),
@@ -127,13 +125,13 @@ class Texto extends StatelessWidget {
 class ButtonSociales extends StatelessWidget {
   const ButtonSociales({
     Key key,
-    @required this.primario2,
+    @required this.color,
     @required this.icono,
     @required this.texto,
     @required this.funcion,
   }) : super(key: key);
 
-  final Color primario2;
+  final Color color;
   final IconData icono;
   final String texto;
   final Function funcion;
@@ -147,7 +145,7 @@ class ButtonSociales extends StatelessWidget {
         height: 48,
         padding: EdgeInsets.all(5),
         decoration: BoxDecoration(
-          border: Border.all(color: primario2),
+          border: Border.all(color: color),
           borderRadius: BorderRadius.circular(10),
         ),
         child: Row(
@@ -155,7 +153,7 @@ class ButtonSociales extends StatelessWidget {
           children: [
             FaIcon(
               icono,
-              color: primario2,
+              color: color,
             ),
             SizedBox(width: 5),
             Text(

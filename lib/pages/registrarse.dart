@@ -3,6 +3,8 @@ import 'package:apperro/main.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:apperro/pages/iniciar_sesion.dart';
 
+import '../palette.dart';
+
 class Registrarse extends StatefulWidget {
   const Registrarse({Key key}) : super(key: key);
 
@@ -13,10 +15,6 @@ class Registrarse extends StatefulWidget {
 class _RegistrarseState extends State<Registrarse> {
   @override
   Widget build(BuildContext context) {
-    final Color gray = Color.fromRGBO(136, 136, 136, 1);
-    Color primario = Color.fromRGBO(33, 150, 83, 1);
-    Color primario2 = Color.fromRGBO(111, 207, 151, 1);
-
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -33,7 +31,7 @@ class _RegistrarseState extends State<Registrarse> {
               InputText(hint: "Contraseña"),
               SizedBox(height: 22),
               Button(
-                color: primario,
+                color: Palette().primario,
                 colorLetra: Colors.white,
                 texto: "Iniciar Sesion",
                 funcion: () => {},
@@ -43,13 +41,13 @@ class _RegistrarseState extends State<Registrarse> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ButtonSociales(
-                    primario2: primario2,
+                    color: Palette().primario2,
                     icono: FontAwesomeIcons.google,
                     texto: "Registrarse",
                     funcion: () {},
                   ),
                   ButtonSociales(
-                    primario2: primario2,
+                    color: Palette().primario2,
                     icono: FontAwesomeIcons.facebook,
                     texto: "Registrarse",
                     funcion: () {},
@@ -60,7 +58,7 @@ class _RegistrarseState extends State<Registrarse> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Texto(
-                    color: gray,
+                    color: Palette().grayLetra,
                     size: 15,
                     texto: "¿Ya tienes una cuenta?",
                   ),

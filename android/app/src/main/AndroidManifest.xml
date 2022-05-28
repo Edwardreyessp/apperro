@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.apperro">
    <application
-        android:label="apperro"
-        android:icon="@mipmap/ic_launcher">
+        android:label="APPerro"
+        android:icon="@mipmap/apperro">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
