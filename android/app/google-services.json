@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "277805693222",
+    "project_id": "apperro-21908",
+    "storage_bucket": "apperro-21908.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:277805693222:android:6cbbd21259f6044195e9e7",
+        "android_client_info": {
+          "package_name": "com.example.apperro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "277805693222-685kgc2gvoh0mnbbj49fs8nl8c395qgk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.apperro",
+            "certificate_hash": "a83a942e254240166f03f5c96cd2fa0c3ca019eb"
+          }
+        },
+        {
+          "client_id": "277805693222-idqrpdij3qdleonhvuvd57soev56niln.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPEzaan2ydawL_0DOvRKwGsHVHnrSrM2A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "277805693222-idqrpdij3qdleonhvuvd57soev56niln.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

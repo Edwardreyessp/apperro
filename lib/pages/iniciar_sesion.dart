@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:apperro/pages/navhome.dart';
 import 'package:apperro/main.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:apperro/pages/navhome.dart';
 
 class IniciarSesion extends StatelessWidget {
   const IniciarSesion({Key key}) : super(key: key);
@@ -53,11 +53,13 @@ class IniciarSesion extends StatelessWidget {
                   primario2: primario2,
                   icono: FontAwesomeIcons.google,
                   texto: "Iniciar Sesión",
+                  funcion: () {},
                 ),
                 ButtonSociales(
                   primario2: primario2,
                   icono: FontAwesomeIcons.facebook,
                   texto: "Iniciar Sesión",
+                  funcion: () {},
                 )
               ],
             ),
@@ -128,41 +130,42 @@ class ButtonSociales extends StatelessWidget {
     @required this.primario2,
     @required this.icono,
     @required this.texto,
+    @required this.funcion,
   }) : super(key: key);
 
   final Color primario2;
   final IconData icono;
   final String texto;
+  final Function funcion;
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-        onPressed: () {},
-        child: Container(
-          width: 127,
-          height: 48,
-          padding: EdgeInsets.all(5),
-          decoration: BoxDecoration(
-              border: Border.all(color: primario2),
-              borderRadius: BorderRadius.circular(10)),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              FaIcon(
-                icono,
-                color: primario2,
-              ),
-              SizedBox(
-                width: 5,
-              ),
-              Text(
-                texto,
-                style:
-                    GoogleFonts.montserrat(color: Colors.black, fontSize: 13),
-              )
-            ],
-          ),
-        ));
+      onPressed: funcion,
+      child: Container(
+        width: 127,
+        height: 48,
+        padding: EdgeInsets.all(5),
+        decoration: BoxDecoration(
+          border: Border.all(color: primario2),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            FaIcon(
+              icono,
+              color: primario2,
+            ),
+            SizedBox(width: 5),
+            Text(
+              texto,
+              style: GoogleFonts.montserrat(color: Colors.black, fontSize: 13),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
 
@@ -182,16 +185,19 @@ class InputText extends StatelessWidget {
       width: 313,
       height: 42,
       child: TextField(
-          style: GoogleFonts.montserrat(color: gray),
-          decoration: InputDecoration(
-              contentPadding: EdgeInsets.fromLTRB(30, 0, 0, 5),
-              border: UnderlineInputBorder(
-                  borderRadius: BorderRadius.circular(50),
-                  borderSide: BorderSide.none),
-              hintText: hint,
-              hintStyle: GoogleFonts.montserrat(color: gray),
-              fillColor: input,
-              filled: true)),
+        style: GoogleFonts.montserrat(color: gray),
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.fromLTRB(30, 0, 0, 5),
+          border: UnderlineInputBorder(
+            borderRadius: BorderRadius.circular(50),
+            borderSide: BorderSide.none,
+          ),
+          hintText: hint,
+          hintStyle: GoogleFonts.montserrat(color: gray),
+          fillColor: input,
+          filled: true,
+        ),
+      ),
     );
   }
 }
