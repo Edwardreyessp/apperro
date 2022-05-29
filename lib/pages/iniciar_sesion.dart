@@ -5,7 +5,6 @@ import 'package:apperro/widgets/social_button.dart';
 
 import 'package:apperro/palette.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:apperro/pages/navhome.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 

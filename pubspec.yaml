@@ -39,9 +39,10 @@ dev_dependencies:
     sdk: flutter
 
 flutter_icons:
-  image_path: "assets/icon/apperro.png"
-  android: true
   ios: true
+  android: true
+  image_path_android: "assets/icon/apperro.png"
+  image_path_ios: "assets/icon/apperro.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

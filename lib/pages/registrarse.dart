@@ -5,9 +5,7 @@ import 'package:apperro/widgets/social_button.dart';
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:apperro/pages/iniciar_sesion.dart';
-
-import '../palette.dart';
+import 'package:apperro/palette.dart';
 
 class Registrarse extends StatefulWidget {
   const Registrarse({Key key}) : super(key: key);
