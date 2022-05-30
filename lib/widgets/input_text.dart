@@ -6,16 +6,20 @@ class InputText extends StatelessWidget {
   const InputText({
     Key key,
     @required this.hint,
+    this.controller,
   }) : super(key: key);
 
   final String hint;
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 313,
       height: 42,
-      child: TextField(
+      child: TextFormField(
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        controller: controller ?? null,
         style: GoogleFonts.montserrat(color: Palette().grayLetra),
         decoration: InputDecoration(
           contentPadding: EdgeInsets.fromLTRB(30, 0, 0, 5),

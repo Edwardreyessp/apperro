@@ -1,118 +1,53 @@
-import 'package:apperro/widgets/rounded_button.dart';
-import 'package:apperro/widgets/texto.dart';
-
+import 'package:apperro/pages/navbar.dart';
+import 'package:apperro/widgets/home.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:apperro/pages/iniciar_sesion.dart';
-import 'package:apperro/pages/registrarse.dart';
-import 'package:apperro/palette.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
+
+final navigatorKey = GlobalKey<NavigatorState>();
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: navigatorKey,
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'APPerro',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: MainPage(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key key}) : super(key: key);
-
+class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // Color primario = Color.fromRGBO(33, 150, 83, 1);
-
-    return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(
-            'assets/images/fondo.jpg',
-          ),
-          fit: BoxFit.fill,
-        ),
-      ),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Container(
-                    padding: EdgeInsets.only(left: 26, top: 19),
-                    child: Logo(color: Palette().primario),
-                  ),
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  RoundedButton(
-                    texto: "Iniciar Sesión",
-                    funcion: () => {sesion(context)},
-                  ),
-                  RoundedButton(
-                    color: Colors.white,
-                    texto: "Registrarse",
-                    colorLetra: Palette().primario,
-                    funcion: () => {
-                      resgitrarse(context),
-                    },
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(bottom: 24, top: 50),
-                    child: Texto(
-                      color: Palette().primario,
-                      texto: "© Todos los derechos reservados",
-                    ),
-                  )
-                ],
-              )
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  sesion(BuildContext context) {
-    Navigator.push(context,
-        MaterialPageRoute(builder: (context) => const IniciarSesion()));
-  }
-
-  resgitrarse(BuildContext context) {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => const Registrarse()));
-  }
-}
-
-class Logo extends StatelessWidget {
-  const Logo({Key key, this.color}) : super(key: key);
-
-  final Color color;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: SvgPicture.asset(
-          'assets/images/logo.svg',
-          semanticsLabel: 'APPerro Logo',
-          color: color,
-          width: 111,
-        ),
+    return Scaffold(
+      body: StreamBuilder<User>(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshop) {
+          if (snapshop.connectionState == ConnectionState.waiting) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          } else if (snapshop.hasError) {
+            return Center(
+              child: Text("Algo salió mal..."),
+            );
+          } else if (snapshop.hasData) {
+            return NavBar();
+          } else {
+            return Home();
+          }
+        },
       ),
     );
   }
