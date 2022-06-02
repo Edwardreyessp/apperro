@@ -7,7 +7,6 @@ import 'package:apperro/widgets/social_button.dart';
 
 import 'package:apperro/palette.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:apperro/pages/navbar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
