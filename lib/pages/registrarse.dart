@@ -35,6 +35,7 @@ class _RegistrarseState extends State<Registrarse> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Container(
           decoration: BoxDecoration(

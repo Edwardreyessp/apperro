@@ -32,6 +32,7 @@ class _IniciarSesionState extends State<IniciarSesion> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Container(
           decoration: BoxDecoration(
