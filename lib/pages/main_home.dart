@@ -6,8 +6,8 @@ import 'package:apperro/widgets/texto.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
 
-class Home extends StatelessWidget {
-  const Home({Key key}) : super(key: key);
+class MainHome extends StatelessWidget {
+  const MainHome({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class Home extends StatelessWidget {
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage(
-            'assets/fondo.jpg',
+            'assets/images/fondo.jpg',
           ),
           fit: BoxFit.fill,
         ),
@@ -87,7 +87,7 @@ class Logo extends StatelessWidget {
     return Container(
       child: Center(
         child: SvgPicture.asset(
-          'assets/logo.svg',
+          'assets/images/logo.svg',
           semanticsLabel: 'APPerro Logo',
           color: color,
           width: 111,

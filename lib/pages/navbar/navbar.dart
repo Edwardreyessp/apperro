@@ -1,3 +1,4 @@
+import 'package:apperro/pages/navbar/pages/initial_home.dart';
 import 'package:apperro/palette.dart';
 import 'package:apperro/widgets/rounded_button.dart';
 import 'package:apperro/widgets/texto.dart';
@@ -55,7 +56,7 @@ class NavBar extends StatelessWidget {
         ),
         body: TabBarView(
           children: [
-            HomeBar(),
+            InitialHome(),
             Container(
               child: Text("2"),
             ),
@@ -107,19 +108,6 @@ class Ubicacion extends StatelessWidget {
           color: Colors.redAccent,
         ),
       ],
-    );
-  }
-}
-
-class HomeBar extends StatelessWidget {
-  const HomeBar({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Text("1"),
     );
   }
 }

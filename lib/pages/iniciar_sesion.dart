@@ -8,7 +8,7 @@ import 'package:apperro/widgets/social_button.dart';
 import 'package:apperro/palette.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:apperro/pages/navbar.dart';
+import 'package:apperro/pages/navbar/navbar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class IniciarSesion extends StatefulWidget {
@@ -31,36 +31,35 @@ class _IniciarSesionState extends State<IniciarSesion> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(
-            'assets/fondo_inicio_sesion.jpg',
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                'assets/images/fondo_inicio_sesion.jpg',
+              ),
+              fit: BoxFit.fill,
+            ),
           ),
-          fit: BoxFit.fill,
-        ),
-      ),
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.transparent,
-        body: StreamBuilder<User>(
-          stream: FirebaseAuth.instance.authStateChanges(),
-          builder: (context, snapshop) {
-            if (snapshop.connectionState == ConnectionState.waiting) {
-              return Center(
-                child: CircularProgressIndicator(),
-              );
-            } else if (snapshop.hasError) {
-              return Center(
-                child: Text("Algo salió mal..."),
-              );
-            } else if (snapshop.hasData) {
-              return NavBar();
-            } else {
-              return SafeArea(
-                child: Column(
+          child: StreamBuilder<User>(
+            stream: FirebaseAuth.instance.authStateChanges(),
+            builder: (context, snapshop) {
+              if (snapshop.connectionState == ConnectionState.waiting) {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else if (snapshop.hasError) {
+                return Center(
+                  child: Text("Algo salió mal..."),
+                );
+              } else if (snapshop.hasData) {
+                return NavBar();
+              } else {
+                return Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
+                    SizedBox(height: 350),
                     InputText(
                       hint: "Correo",
                       controller: emailController,
@@ -109,10 +108,10 @@ class _IniciarSesionState extends State<IniciarSesion> {
                     ),
                     SizedBox(height: 45),
                   ],
-                ),
-              );
-            }
-          },
+                );
+              }
+            },
+          ),
         ),
       ),
     );

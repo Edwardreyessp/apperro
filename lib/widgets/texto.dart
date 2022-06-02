@@ -18,6 +18,7 @@ class Texto extends StatelessWidget {
     return Center(
       child: Text(
         texto,
+        textAlign: TextAlign.center,
         style: GoogleFonts.montserrat(
           fontSize: size ?? 15,
           color: color ?? Colors.black,

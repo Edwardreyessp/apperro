@@ -34,20 +34,19 @@ class _RegistrarseState extends State<Registrarse> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage('assets/fondo_registrarse.jpg'),
-          fit: BoxFit.fill,
-        ),
-      ),
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.transparent,
-        body: SafeArea(
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/images/fondo_registrarse.jpg'),
+              fit: BoxFit.fill,
+            ),
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
+              SizedBox(height: 300),
               InputText(hint: "Fecha de nacimiento"),
               SizedBox(height: 22),
               InputText(
