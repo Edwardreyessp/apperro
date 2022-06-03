@@ -7,18 +7,20 @@ class Texto extends StatelessWidget {
     @required this.texto,
     this.color,
     this.size,
+    this.align,
   }) : super(key: key);
 
   final String texto;
   final Color color;
   final double size;
+  final TextAlign align;
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Text(
         texto,
-        textAlign: TextAlign.center,
+        textAlign: align ?? TextAlign.center,
         style: GoogleFonts.montserrat(
           fontSize: size ?? 15,
           color: color ?? Colors.black,

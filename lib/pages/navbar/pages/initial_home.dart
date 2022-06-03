@@ -33,6 +33,7 @@ class InitialHome extends StatelessWidget {
               text: '¿Eres veterinario?',
               textButton: 'Ayudar',
             ),
+            SizedBox(height: 35),
           ],
         ),
       ),

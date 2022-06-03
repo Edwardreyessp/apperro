@@ -1,4 +1,6 @@
+import 'package:apperro/pages/navbar/pages/comida.dart';
 import 'package:apperro/pages/navbar/pages/initial_home.dart';
+import 'package:apperro/pages/navbar/pages/ubicacion.dart';
 import 'package:apperro/palette.dart';
 import 'package:apperro/widgets/rounded_button.dart';
 import 'package:apperro/widgets/texto.dart';
@@ -57,9 +59,7 @@ class NavBar extends StatelessWidget {
         body: TabBarView(
           children: [
             InitialHome(),
-            Container(
-              child: Text("2"),
-            ),
+            Comida(),
             Container(
               child: Text("3"),
             ),
@@ -68,6 +68,7 @@ class NavBar extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Texto(texto: user.email),
+                SizedBox(height: 20),
                 RoundedButton(
                   texto: "Cerrar Sesión",
                   funcion: () => {FirebaseAuth.instance.signOut()},
@@ -77,37 +78,6 @@ class NavBar extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-class Ubicacion extends StatelessWidget {
-  const Ubicacion({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        RoundedButton(
-          texto: "Comming soon...",
-          color: Colors.redAccent,
-        ),
-        Container(
-          height: 350,
-          child: Image.asset('assets/map.png'),
-        ),
-        SizedBox(height: 20),
-        RoundedButton(
-          texto: "Presiona para buscar lugares",
-          color: Colors.redAccent,
-        ),
-        RoundedButton(
-          texto: "Agregar nueva ubicación",
-          color: Colors.redAccent,
-        ),
-      ],
     );
   }
 }
