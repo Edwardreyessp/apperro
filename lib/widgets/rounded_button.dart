@@ -21,9 +21,19 @@ class RoundedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: funcion ?? () {},
-      child: Container(
+    return SizedBox(
+      width: width ?? 313,
+      height: height ?? 42,
+      child: ElevatedButton(
+        style: ButtonStyle(
+          backgroundColor:
+              MaterialStateProperty.all<Color>(color ?? Palette().primario),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+              RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(50),
+          )),
+        ),
+        onPressed: funcion ?? () {},
         child: Center(
           child: Text(
             texto,
@@ -32,13 +42,6 @@ class RoundedButton extends StatelessWidget {
               fontWeight: FontWeight.w600,
             ),
           ),
-        ),
-        margin: EdgeInsets.only(bottom: 10),
-        width: width ?? 313,
-        height: height ?? 42,
-        decoration: BoxDecoration(
-          color: color ?? Palette().primario,
-          borderRadius: BorderRadius.circular(50),
         ),
       ),
     );

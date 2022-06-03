@@ -42,6 +42,7 @@ class MainHome extends StatelessWidget {
                     texto: "Iniciar Sesión",
                     funcion: () => {sesion(context)},
                   ),
+                  SizedBox(height: 20),
                   RoundedButton(
                     color: Colors.white,
                     texto: "Registrarse",
