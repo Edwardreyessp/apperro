@@ -12,6 +12,7 @@ class Announcement extends StatelessWidget {
     this.imageWidth,
     this.imageHeight,
     this.textWidth,
+    this.funcion,
   }) : super(key: key);
 
   final String name;
@@ -20,6 +21,7 @@ class Announcement extends StatelessWidget {
   final double imageWidth;
   final double imageHeight;
   final double textWidth;
+  final Function funcion;
 
   @override
   Widget build(BuildContext context) {
@@ -57,6 +59,7 @@ class Announcement extends StatelessWidget {
                         width: 117,
                         height: 32,
                         color: Palette().primario2,
+                        funcion: funcion,
                       )
                     ],
                   ),

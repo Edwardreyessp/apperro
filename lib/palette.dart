@@ -7,4 +7,5 @@ class Palette {
   Color secundario2 = Color(0xFF96D9FF);
   Color grayLetra = Color.fromRGBO(136, 136, 136, 1);
   Color grayArea = Color(0xFFECF0F2);
+  Color rojo = Color(0xFFFF6961);
 }

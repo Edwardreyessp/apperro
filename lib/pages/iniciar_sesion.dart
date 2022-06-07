@@ -65,12 +65,12 @@ class _IniciarSesionState extends State<IniciarSesion> {
                       hint: "Correo",
                       controller: emailController,
                     ),
-                    SizedBox(height: 22),
+                    SizedBox(height: 2),
                     InputText(
                       hint: "Contraseña",
                       controller: passwordController,
                     ),
-                    SizedBox(height: 22),
+                    SizedBox(height: 12),
                     RoundedButton(
                       texto: "Iniciar Sesion",
                       funcion: () => {signIn()},

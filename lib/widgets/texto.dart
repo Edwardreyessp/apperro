@@ -8,12 +8,14 @@ class Texto extends StatelessWidget {
     this.color,
     this.size,
     this.align,
+    this.weight,
   }) : super(key: key);
 
   final String texto;
   final Color color;
   final double size;
   final TextAlign align;
+  final FontWeight weight;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +26,7 @@ class Texto extends StatelessWidget {
         style: GoogleFonts.montserrat(
           fontSize: size ?? 15,
           color: color ?? Colors.black,
+          fontWeight: weight ?? FontWeight.w400,
         ),
       ),
     );

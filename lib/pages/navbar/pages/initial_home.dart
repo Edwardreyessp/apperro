@@ -1,4 +1,5 @@
 import 'package:apperro/pages/navbar/widgets/announcement.dart';
+import 'package:apperro/pages/registrar_perro.dart';
 import 'package:flutter/material.dart';
 
 class InitialHome extends StatelessWidget {
@@ -16,6 +17,7 @@ class InitialHome extends StatelessWidget {
               textButton: 'Agregar',
               imageHeight: 98.16,
               imageWidth: 70,
+              funcion: () => {agregar(context)},
             ),
             Announcement(
               name: 'assets/images/perro2.png',
@@ -38,5 +40,10 @@ class InitialHome extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  agregar(BuildContext context) {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const RegistrarPerro()));
   }
 }
