@@ -13,6 +13,7 @@ class Announcement extends StatelessWidget {
     this.imageHeight,
     this.textWidth,
     this.funcion,
+    this.widthButton,
   }) : super(key: key);
 
   final String name;
@@ -22,6 +23,7 @@ class Announcement extends StatelessWidget {
   final double imageHeight;
   final double textWidth;
   final Function funcion;
+  final double widthButton;
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +58,7 @@ class Announcement extends StatelessWidget {
                       ),
                       RoundedButton(
                         texto: textButton,
-                        width: 117,
+                        width: widthButton ?? 117,
                         height: 32,
                         color: Palette().primario2,
                         funcion: funcion,

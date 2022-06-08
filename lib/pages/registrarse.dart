@@ -178,6 +178,7 @@ class _RegistrarseState extends State<Registrarse> {
       name: userController.text.trim(),
       email: emailController.text.trim(),
       birthday: dateController.text.trim(),
+      typeUser: "",
     );
 
     await docUser.set(user.toJson());

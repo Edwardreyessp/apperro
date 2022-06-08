@@ -1,4 +1,5 @@
 import 'package:apperro/main.dart';
+import 'package:apperro/pages/navbar/pages/tipo_usuario.dart';
 import 'package:apperro/pages/registrarse.dart';
 import 'package:apperro/widgets/input_text.dart';
 import 'package:apperro/widgets/rounded_button.dart';
@@ -8,7 +9,6 @@ import 'package:apperro/widgets/social_button.dart';
 import 'package:apperro/palette.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:apperro/pages/navbar/navbar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class IniciarSesion extends StatefulWidget {
@@ -55,7 +55,7 @@ class _IniciarSesionState extends State<IniciarSesion> {
                   child: Text("Algo salió mal..."),
                 );
               } else if (snapshop.hasData) {
-                return NavBar();
+                return TipoUsuario();
               } else {
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.end,
