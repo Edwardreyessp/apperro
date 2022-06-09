@@ -1,3 +1,4 @@
+import 'package:apperro/model/actividad.dart';
 import 'package:apperro/model/user.dart';
 import 'package:apperro/pages/iniciar_sesion.dart';
 import 'package:apperro/widgets/input_text.dart';
@@ -173,12 +174,15 @@ class _RegistrarseState extends State<Registrarse> {
         .collection('users')
         .doc(FirebaseAuth.instance.currentUser.uid);
 
+    List activities = [];
+
     final user = MyUser(
       id: FirebaseAuth.instance.currentUser.uid,
       name: userController.text.trim(),
       email: emailController.text.trim(),
       birthday: dateController.text.trim(),
       typeUser: "",
+      activities: activities,
     );
 
     await docUser.set(user.toJson());

@@ -17,46 +17,49 @@ class TipoUsuario extends StatelessWidget {
         .doc(FirebaseAuth.instance.currentUser.uid);
 
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            Texto(
-              texto: "¡Cuéntanos más sobre ti!",
-              size: 20,
-              weight: FontWeight.w700,
-            ),
-            SizedBox(height: 30),
-            SvgPicture.asset(
-              'assets/images/logo.svg',
-              semanticsLabel: 'APPerro Logo',
-              color: Palette().primario,
-              width: 111,
-            ),
-            Announcement(
-              name: 'assets/images/perro2.png',
-              text: "Cuida a tus propios perros",
-              textButton: "Cuidar",
-              widthButton: 160,
-              funcion: () => {tipoUsuario(documentReference, "Dueño", context)},
-            ),
-            Announcement(
-              name: 'assets/images/pethouse.png',
-              text: "¿Eres un centro de adopción?",
-              textButton: "Brindar servicio",
-              widthButton: 160,
-              funcion: () => {
-                tipoUsuario(documentReference, "Centro Veterinario", context)
-              },
-            ),
-            Announcement(
-              name: 'assets/images/veterinario.png',
-              text: "¿Eres veterinario?",
-              textButton: "Ayudar",
-              widthButton: 160,
-              funcion: () =>
-                  {tipoUsuario(documentReference, "Veterinario", context)},
-            ),
-          ],
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Column(
+            children: [
+              Texto(
+                texto: "¡Cuéntanos más sobre ti!",
+                size: 20,
+                weight: FontWeight.w700,
+              ),
+              SizedBox(height: 30),
+              SvgPicture.asset(
+                'assets/images/logo.svg',
+                semanticsLabel: 'APPerro Logo',
+                color: Palette().primario,
+                width: 111,
+              ),
+              Announcement(
+                name: 'assets/images/perro2.png',
+                text: "Cuida a tus propios perros",
+                textButton: "Cuidar",
+                widthButton: 160,
+                funcion: () =>
+                    {tipoUsuario(documentReference, "Dueño", context)},
+              ),
+              Announcement(
+                name: 'assets/images/pethouse.png',
+                text: "¿Eres un centro de adopción?",
+                textButton: "Brindar servicio",
+                widthButton: 160,
+                funcion: () => {
+                  tipoUsuario(documentReference, "Centro Veterinario", context)
+                },
+              ),
+              Announcement(
+                name: 'assets/images/veterinario.png',
+                text: "¿Eres veterinario?",
+                textButton: "Ayudar",
+                widthButton: 160,
+                funcion: () =>
+                    {tipoUsuario(documentReference, "Veterinario", context)},
+              ),
+            ],
+          ),
         ),
       ),
     );

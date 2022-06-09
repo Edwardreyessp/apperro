@@ -40,11 +40,9 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   String data;
+  bool flag = true;
   @override
   Widget build(BuildContext context) {
-    DocumentReference documentReference = FirebaseFirestore.instance
-        .collection('users')
-        .doc(FirebaseAuth.instance.currentUser.uid);
     return Scaffold(
       body: StreamBuilder<User>(
         stream: FirebaseAuth.instance.authStateChanges(),
@@ -58,10 +56,7 @@ class _MainPageState extends State<MainPage> {
               child: Text("Algo salió mal..."),
             );
           } else if (snapshop.hasData) {
-            documentReference.get().then((datasnapshot) => {
-                  data = datasnapshot.data().values.elementAt(1),
-                  print(datasnapshot.data().values),
-                });
+            actualizar();
             if (data == "") {
               return TipoUsuario();
             } else {
@@ -73,5 +68,24 @@ class _MainPageState extends State<MainPage> {
         },
       ),
     );
+  }
+
+  actualizar() async {
+    DocumentReference documentReference = FirebaseFirestore.instance
+        .collection('users')
+        .doc(FirebaseAuth.instance.currentUser.uid);
+    documentReference.get().then((datasnapshot) => {
+          data = datasnapshot.data().values.elementAt(1),
+          actualizar2(data),
+        });
+  }
+
+  actualizar2(String newdata) {
+    if (flag) {
+      setState(() {
+        data = newdata;
+        flag = false;
+      });
+    }
   }
 }

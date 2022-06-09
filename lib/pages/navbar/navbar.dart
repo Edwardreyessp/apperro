@@ -21,10 +21,9 @@ class NavBar extends StatefulWidget {
 class _NavBarState extends State<NavBar> {
   bool flag = true;
   bool flag2 = true;
+  User user = FirebaseAuth.instance.currentUser;
   @override
   Widget build(BuildContext context) {
-    final user = FirebaseAuth.instance.currentUser;
-
     if (flag2) {
       FirebaseFirestore.instance
           .collection('users')

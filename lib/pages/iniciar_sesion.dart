@@ -107,7 +107,7 @@ class _IniciarSesionState extends State<IniciarSesion> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 45),
+                    SizedBox(height: 10),
                   ],
                 );
               }

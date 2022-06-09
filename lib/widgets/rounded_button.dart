@@ -9,7 +9,6 @@ class RoundedButton extends StatelessWidget {
     this.color,
     this.colorLetra,
     this.funcion,
-    this.size,
     this.width,
     this.height,
   }) : super(key: key);
@@ -17,7 +16,7 @@ class RoundedButton extends StatelessWidget {
   final String texto;
   final Color color, colorLetra;
   final Function funcion;
-  final double size, width, height;
+  final double width, height;
 
   @override
   Widget build(BuildContext context) {

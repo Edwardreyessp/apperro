@@ -26,4 +26,14 @@ class Perro {
         'race': race,
         'desc': desc,
       };
+
+  static Perro fromJson(Map<String, dynamic> json) => Perro(
+        id: json['id'],
+        name: json['name'],
+        birthday: json['birthday'],
+        age: json['age'],
+        size: json['size'],
+        race: json['race'],
+        desc: json['desc'],
+      );
 }
